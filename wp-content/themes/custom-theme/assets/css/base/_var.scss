@@ -1,0 +1,29 @@
+// Typesetting variables. Edit here or override in main file prior to import of this.
+$baseFontSize:22 !default; // in pixels. This would result in 22px on desktop
+$baseLineHeight:1.5 !default; // how large the line height is as a multiple of font size
+$leading:$baseLineHeight * 1rem !default;
+// Rate of growth for headings
+// I actually like this to be slightly smaller then the leading. Makes for tight headings.
+$scale:1.414 !default;
+
+// breakpoints
+// from device width https://semantic-ui.com/elements/container.html
+$bp--sm: 768px;
+$bp--md: 998px;
+$bp--lg: 1200px;
+
+// custom fonts
+
+$lighttext: 'Modern Sans Light', sans-serif; 
+$mainheaders: 'Tuesday Night', sans-serif;
+$subheaders: 'Butler', sans-serif;
+$maintext: 'Modern Sans', sans-serif;
+
+
+//Clours 
+
+$darkgreenmain:#112507;
+$lightblush:#E3BAB3;
+$verylightblush:#F5E6E4;
+$canvas:#E1D4C5;
+$alfgarnet:#613A43;

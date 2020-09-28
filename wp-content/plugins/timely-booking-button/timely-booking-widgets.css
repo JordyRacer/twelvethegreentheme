@@ -1,0 +1,48 @@
+.tbb-account-correct {
+    border: 1px solid #468847 !important;
+}
+
+.tbb-account-wrong {
+    border: 1px solid #b94a48 !important;
+}
+
+span.tbb-account-status {
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    display: inline;
+    font-family: ff-meta-web-pro, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 13px;
+    margin: 0 0 3px 10px;
+    padding: 5px;
+    -webkit-text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
+    text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
+    vertical-align: middle;
+    white-space: normal; 
+}
+
+span#tbb-account-correct {
+    background-color: #468847;
+    display: inline-block;
+}
+
+span#tbb-account-wrong {
+    background-color: #b94a48;
+    display: inline-block;
+}
+span.tbb-colour-preview {
+    display: inline-block;
+    margin: -1px 0 0 88px;
+    vertical-align: middle;
+}
+
+div.tbb-update-error {
+    background-color: #f9c6c6;
+    border-color: #b94a48;
+}
+
+.tbw-input-mini {
+    width: 70px;
+    margin-right: 20px;
+}

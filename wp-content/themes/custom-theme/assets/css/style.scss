@@ -1,0 +1,1322 @@
+// base 
+@import './base/var';
+@import './base/base';
+@import './base/typography';
+
+// layouts
+@import './layouts/container';
+@import './layouts/grid';
+@import './layouts/custom';
+@import './layouts/segment';
+@import './layouts/table';
+
+html,
+body {
+ height: 100%;
+ position: relative;    
+ overflow-x: hidden;
+ font-size: 2.1vh;
+ -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+font-family: "Modern Sans";
+}
+
+@mixin breakpoint($class) {
+   @if $class == xs {
+     @media (max-width: 767px) { @content; }
+   }
+  
+   @else if $class == sm {
+     @media (min-width: $bp--sm) { @content; }
+   }
+  
+   @else if $class == md {
+     @media (min-width: $bp--md) { @content; }
+   }
+  
+   @else if $class == lg {
+     @media (min-width: $bp--lg) { @content; }
+   }
+  
+   @else {
+     @warn "Breakpoint mixin supports: xs, sm, md, lg";
+   }
+ }
+
+@font-face {
+   font-family: 'Butler';
+   src: url('assets/fonts/Butler_Webfont/Butler.woff2') format('woff2'),
+       url('assets/fonts/Butler_Webfont/Butler.woff') format('woff');
+   font-weight: 200;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Modern Sans';
+   src: url('assets/fonts/mixed-fonts/ModernSans.woff2') format('woff2'),
+       url('assets/fonts/mixed-fonts/ModernSans.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'Tuesday Night';
+   src: url('assets/fonts/mixed-fonts/TuesdayNight-Regular.woff2') format('woff2'),
+       url('assets/fonts/mixed-fonts/TuesdayNight-Regular.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'Modern Sans Light';
+   src: url('assets/fonts/mixed-fonts/ModernSansLight.woff2') format('woff2'),
+       url('assets/fonts/mixed-fonts/ModernSansLight.woff') format('woff');
+   font-weight: 300;
+   font-style: normal;
+   font-display: swap;
+}
+
+
+.post, .page{
+   margin-bottom:0px;
+}
+
+.main-container {
+ min-height: 100vh; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 300px; /* height of your footer */
+ @include breakpoint(sm){
+    padding-bottom: 210px;
+ }
+}
+
+footer {
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+}
+
+h1 {
+   font-family: $mainheaders!important;
+   font-weight: 400;
+}
+
+h2 {
+   font-family: $subheaders!important;
+   font-size: 3em;
+}
+
+h3 {
+   font-family: $mainheaders!important;
+   font-size: 3.6em;
+   line-height: 1em;
+}
+
+h5 {
+   font-family: $subheaders!important;
+   font-size:3em;
+   line-height: 0.8em 
+}
+
+h6 {
+   font-family: $subheaders!important;
+   font-size: 1em;
+}
+
+p {
+   font-family: $lighttext!important;
+   font-weight: 100;
+}
+
+hr{
+   width: 290%;
+   color: #707070;
+}
+
+// not feeding correct font-family
+
+button {
+   font-family: $maintext;
+}
+
+ul.list-inlne{
+   display: grid!important;
+   grid-template-columns: repeat(3, 1fr);
+   grid-gap: 0.3em;
+   margin: 0px;
+   @include breakpoint(sm){
+      grid-gap:1em;
+   }
+ }
+
+.btn-size img{ width: 185px;}
+
+.img-border{
+   border: solid 10px $lightblush;
+}
+
+.menu-wrapper{
+   min-height: 58px;
+   @include breakpoint(sm){
+      min-height: 100px;
+   }
+}
+
+// background image flower detail 
+
+.main-page-bg{
+   background-image: url('assets/img/sub-page-bg.png');
+   background-position: left 4% top 200%;
+   background-size: 30%;
+   background-repeat: no-repeat;
+   @include breakpoint(md){
+   background-position: left 10% top 260px;
+   background-size: 30%;
+ }
+ 
+}
+
+.sub-page-bg{
+   @include breakpoint(sm){
+   background-image: url('assets/img/sub-page-bg.png');
+   background-position: left -29% top 4em;
+   background-repeat: no-repeat;
+   background-size: initial;
+   background-size: 40%;
+   }
+}
+
+.sub-page-bg-right{
+   @include breakpoint(sm){
+   background-image: url('assets/img/TwelveTheGreen_Peoni_Pink_NoBackground_flipped.png');
+   background-position: right -29% top 4em;
+   background-repeat: no-repeat;
+   background-size: initial;
+   background-size: 40%;
+   }
+}
+
+.bottom-page-bg{
+   background-image: url('assets/img/sub-page-bg.png');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: initial;
+   height: 10em;
+   background-size: 20%;
+   @include breakpoint(sm){
+      background-size: 30%;
+      height: 50em;
+   }
+}
+
+
+// services page sub menu at top of page 
+
+.top-list{
+   padding: 2em;
+   margin-left: 1em;
+}
+
+.top-list a{
+   color: #000;
+}
+.top-list a:active, .top-list a:hover{
+   color: $lightblush;
+   text-decoration:none;
+}
+
+.list-inline-item{
+   font-family: $subheaders;
+}
+
+.list-inline-item.center{
+   align-items: end;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   min-width: 2em;
+   min-height: 100px;
+}
+
+ .list-inline-item span{
+   color:#000;
+ }
+
+.list-inline-item.pricebox:nth-child(1n), .list-inline-item.pricebox:nth-child(2n){
+   background-image: url('assets/svg/price-bg.svg');
+   background-size: 37%;
+   font-size: 0.7em;
+   background-repeat: no-repeat;
+   background-position:center;
+   text-align: center;
+   vertical-align: center;
+   padding:2em;
+   margin: 0 ;
+   font-family: sans-serif;
+   font-weight: 100;
+   color: $alfgarnet;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   @include breakpoint(lg){
+      background-size: 25%;
+      font-size: 0.8em;
+   }
+   @include breakpoint(sm){
+      background-size: 20%;
+      font-size: 1em;
+   }
+}
+
+// services page sub menu at top of page 
+
+.covid-bg-title{
+   width: 90%;
+   background-image: url('assets/svg/covid-title-bg.svg');
+   background-size: 90%;
+   background-position:left;
+   background-repeat: no-repeat;
+   display: flex;
+   align-items: center;
+   text-align: left;
+   margin: 0 auto;
+   & h2 {
+      color: $lightblush;
+      font-size: 1em;
+      line-height: 1em;
+      margin: 8px;
+   }
+   @include breakpoint(md){
+      background-size: 70%;
+
+      h2{
+         font-size: 2em;
+      }
+   }
+}
+
+.__1{ background-image: url('assets/svg/1.svg');}
+.__2{ background-image: url('assets/svg/2.svg');} 
+.__3{ background-image: url('assets/svg/3.svg');}
+.__4{ background-image: url('assets/svg/4.svg');} 
+.__5{ background-image: url('assets/svg/5.svg');}
+.__6{ background-image: url('assets/svg/6.svg');} 
+.__7{ background-image: url('assets/svg/7.svg');}
+.__8{ background-image: url('assets/svg/8.svg');} 
+
+
+.services-headers{
+   font-size: 0.5em;
+}
+
+.service-holder{
+   width: 100%;
+   margin: 0 auto;
+   margin-bottom: 5em;
+   & li{
+      font-size: 1.3em;
+   }
+   & h2{
+      font-size:1.3em ;
+   }
+   & span{
+      font-size: 0.5em;
+      color: $darkgreenmain;
+      line-height: 1.7em;
+   }
+   @include breakpoint(md){
+      width: 70%;
+      & li {
+         font-size: 1.6em;
+      }
+     
+      & h2{
+         font-size:1.3em ;
+      }
+   }
+   @include breakpoint(sm){
+      width: 80%;
+
+   }
+}
+
+.ui-grid{
+   margin: 0px;
+}
+
+// snazzy maps 
+
+#map {
+   width: 750px;
+   height: 500px;
+}
+
+// Hides wordpress titles 
+
+.site-info, .entry-title, .site-title{
+   display: none;
+}
+
+// text 
+.large-font{
+   font-size: 2em;
+   line-height: 1.1;
+}
+
+// container classes
+.carousel-inner img {
+   width: 100%;
+   height: 100%;
+}
+
+.flex {
+   display: flex;
+   align-items: center;
+}
+
+.flex-row{
+   display: flex;
+   flex-direction: row;
+   align-items: flex-end;
+}
+
+.flex-column{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.flex-center{
+   display: flex!important;
+   align-items: center;
+   justify-content: center;
+}
+
+.text-center{
+   text-align: center;
+}
+
+.menu-toggle{
+  background-color: transparent;
+  border: none;
+  margin-top: 20px;
+}
+
+.rose-box{
+   background-image: url('assets/img/sub-page-bg.png');
+   background-repeat: no-repeat;
+   background-position: left 4% bottom 0em;
+   background-size: 20%;
+   @include breakpoint(sm){
+      background-size: 80%;
+      height: 50em;
+      background-position: left 4% bottom -10em;
+   }
+}
+
+.instagram {background-color: transparent; padding: 20px;position: relative; max-height: 900px;}
+
+.instagram-bg{
+   position: relative;
+   // background-image: url('assets/svg/instagram-bg.svg');
+   background-position: top;
+   background-repeat: no-repeat;
+   background-size: 135%;
+   padding: 0% 0px 0px 0px;
+      color: #000;
+}
+
+.canvas-cta-box {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-line-pack: distribute;
+      align-content: space-between;
+      justify-content: space-evenly;
+      margin: 0 auto;
+      height: 500px;
+      width: 90%;
+      padding: 8% 5%;
+      text-align: center;
+      background-color:$canvas;
+      & h3 { font-size: 1.7em;
+      font-family: $mainheaders;}
+      & img {width: 185px}
+      & p { 
+      font-size: 2em;
+      line-height: 1.2em;}
+   @include breakpoint(md){
+      width: 85%;
+      margin-bottom: 0px;
+      & h3{font-size: 3em;       
+           font-family: $mainheaders;}
+      & p{font-size: 1.7em;}
+   }
+}
+
+// buy a gift card CTA box
+
+.buy-now {
+      background: $darkgreenmain;
+      color:$lightblush ;
+      width: 90%;
+      height: 500px;
+      position: relative;
+      padding:5%;
+      text-align: center;
+      display: block;
+      margin:0 auto;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-line-pack: distribute;
+      align-content: space-between;
+      justify-content: space-evenly;
+       & img {width: 185px;}
+       & h6 { size: 0.3em;
+         color:#fff;
+         margin-bottom: 1em;}
+       & h5 {
+         font-family: $subheaders;
+         font-size: 2.6em;
+         line-height: 0.8em}
+      @include breakpoint(md){
+         & h5{
+            font-size: 3.4em;
+         }
+      }
+      @include breakpoint(lg){
+         width: 85%;
+         height: 28rem;
+         text-align: left;
+         & h5{
+            font-size: 4.2em;
+         }
+     }
+}
+
+.__blush-colorway{
+   background: $verylightblush;
+   color: $alfgarnet;
+   & h6{
+      color: $alfgarnet;
+   }
+}
+
+
+// Client testimonials 
+
+.client-testimonials{
+   width: 100%;
+   background-color: $canvas;
+   padding: 5%;
+   margin-top: 5%;
+   border-top:  $darkgreenmain solid 20px;
+    &__child-element{
+      width: 80%;
+      margin: 0 auto;
+      padding: 10%;}
+      text-align: center;
+      &__child-element h2{
+         margin:0 auto;
+         font-size: 1.2em;
+         line-height: 1em;
+         font-family: $subheaders;
+         @include breakpoint(sm){
+            font-size:3em;
+            text-align:left;
+         }
+       }
+     
+    }
+
+// you deserve it section
+.you-deserve-it{
+   background-color: #fff;
+   min-height: 400px;
+   padding: 5% 0;
+   & img{
+   max-width: 200px;
+   height: auto;
+   z-index: 555;
+   }  
+   & h3{
+      font-size: 3.2em ;
+   }
+   @include breakpoint(sm){
+      
+   }
+}
+// service page 
+.modal-backdrop{background-color:transparent;}
+   
+.custom-modal{
+   background-image: url('assets/svg/Flower_Background_Black.svg');
+   background-position: bottom 105% right 172%;
+   background-repeat: no-repeat;
+   position: relative;
+   display: -ms-flexbox;
+   display: flex;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   width: 100%;
+   pointer-events: auto;
+   background-color: $verylightblush;
+   background-clip: padding-box;
+   border: solid 10px;
+   border-radius: 0px;
+   border-color:$canvas;
+   outline: 0;
+   position: absolute;
+   top: 50%;
+   & span{
+      font-size:1em;
+   }
+   & img{ width: 185px;  }
+}
+   
+.modal-footer, .modal-header{ 
+   border-top:none!important;
+   border-bottom:none!important;}
+
+// map area
+
+.custom-modal-dialog{
+     margin: 15.75rem auto!important;
+   @include breakpoint(sm){
+      margin: 15.75rem auto!important;
+   }
+}
+
+.find-us{
+   position: relative;
+   background-color: white;
+   border-bottom: solid 20px $canvas;
+   margin: 0px;
+}
+
+.map-text{
+   background-color: $darkgreenmain;
+   display: flex;
+   color: #fff;
+   flex-direction: column;
+   height: 100%;
+   z-index:10;
+   & h6{ font-size: 2em;
+         line-height: 1.1em;
+         font-weight: 100;}
+   @include breakpoint(md){
+      & h6{
+         font-size: 1.8em;
+      }
+   }
+}
+
+.cta-box-wide{
+   margin: 0 auto;
+   width: 100%;
+   background-color: $canvas;
+   display: flex;
+   justify-content:space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   padding:0.2em 1.3em;
+   margin-bottom:7%;
+   & h2 {
+      margin-top:1em;
+      font-size: 1em;
+      line-height: 0.9em;
+      font-family: $subheaders;
+   }
+   & span {
+      font-family: inherit;
+      font-size: 2.5em;
+      color: #000;
+   }
+   @include breakpoint(sm){
+      width: 80%;
+      padding: 0.5em 2em;
+      & h2{
+         font-size: 1.9em;
+         line-height: 1.1em;
+      }
+   }
+}
+
+.contact-info{
+   display: grid;
+   grid-template-areas:'address openinginfo';
+   grid-template-columns: 55% auto;
+   grid-gap: 1em;
+   padding-left: 10%;
+   padding-right: 10%;
+}
+
+.contact-info__row1{
+   grid-area: address;
+ }
+ 
+.contact-info__row2 {
+   grid-area: openinginfo;
+ }
+
+ @media (max-width: 1024px) {
+   .contact-info {
+      grid-template-areas: 
+       'address address'
+       'openinginfo openinginfo';
+    }
+   }
+
+.contact-us{
+   display: grid;
+   grid-template-areas:'getintouch openingtimes mailinglist';
+   grid-template-columns: 30% 30% auto;
+   grid-gap: 1em;
+   position: relative;
+   background-image: url('assets/svg/contact-list-bg.svg');
+   background-position: top;
+   background-repeat: no-repeat;
+   background-size: 120%;
+   background-color: $canvas;
+   & h2 {
+      margin: 0 auto;
+      text-align: left;
+   }
+   & ul {
+      list-style-type: none;
+      font-family: $subheaders;
+      padding: 0px;
+      margin-left: 0px;
+   }
+   & li {
+      min-width: 500px;
+   }
+   & a {
+      text-decoration: none;
+      font-family: $maintext;
+      font-weight: bold;
+      color: #000;
+      }
+   & i {
+   color: #000;
+   vertical-align: sub;
+   font-size: 50px;
+   }
+
+   & span {
+   color: rgb(0, 0, 0);
+   position: relative;
+   top: 4px;
+   }
+  
+}
+
+// custom grid area for contact us 
+
+.contact-us__row1{
+   grid-area: getintouch;
+ }
+ 
+.contact-us__row2 {
+   grid-area: openingtimes;
+ }
+ 
+.contact-us__row3 {
+   grid-area: mailinglist;
+ }
+
+@media (max-width: 1024px) {
+.contact-us {
+   grid-template-areas: 
+    'getintouch getintouch getintouch'
+    'openingtimes openingtimes openingtimes' 
+    'mailinglist mailinglist mailinglist';
+ }
+}
+
+.contact-block{
+   background-color: $verylightblush;
+   border: $canvas solid 10px;
+   margin-bottom: 3em;
+   & a{
+      margin-top: 1px;
+   }
+   & p{
+      margin-top: 0px;
+   }
+   & h2{ 
+      text-align: left;
+   }
+   & img {
+      color: black;
+      margin-bottom: 2em ;
+   }
+   & a{ color:#000;
+   font-family: $maintext;}
+}
+
+
+.white {background-color: #fff!important;}
+.pink-bg {background-color: $verylightblush;}
+.darkgreen-bg{background-color: $darkgreenmain;}
+.transparent{background-color: transparent;}
+
+.social-block{
+   align-self:flex-start;
+   padding-top: 10%;
+   text-align: center;
+   & img { display: block;
+            width: 6em;
+         margin-left: 10px;}
+   & h2 { margin-top:25%;}
+   @include breakpoint(md){
+      & img { width: 8em;}
+   }
+}
+
+
+.side-text {
+   @include breakpoint(md){
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+   }
+}
+
+// split ul 
+
+.multi-column {
+   -moz-column-count: 2;
+   -moz-column-gap: 20px;
+   -webkit-column-count: 2;
+   -webkit-column-gap: 20px;
+   column-count: 2;
+   column-gap: 20px;
+   max-width: fit-content;
+   list-style-position: inside;
+   list-style: none;
+   max-width: 30%;
+   margin: 0;
+   font-family: $subheaders;
+   list-style: none;
+   padding-inline-start: 0px;
+   @include breakpoint(md){
+      max-width: 100%;
+   }
+}
+
+
+
+.mc4wp-form-theme label {
+   font-family: $subheaders!important;
+}
+
+@media only screen and (max-width: 600px) {
+   .instagram-bg, .gift-card, .buy-now {
+     background-image: none;
+   }
+
+   .buy-now{
+      min-height:245px;
+   }
+ }
+
+//menu button holder 
+
+#menu-item-1918{
+ border: solid 1px #000 ;
+ width: 162px;
+ height: 40px;
+ padding-left: 0px!important;
+ margin-left: 5%;
+ text-align: center;
+}
+
+// when float right is applied to mibile menu it hides the drop down
+.site-header{
+   float: none;
+   @include breakpoint(sm){
+      float: right;
+   }
+}
+
+.main-navigation .primary-menu{
+   position: relative;
+   width: 100%;
+   z-index: 999;
+   @include breakpoint(md){
+     width: 90%;
+   }
+   @include breakpoint(sm){
+       width: 90%;
+       background-color: transparent;
+       height: 100px;
+       // padding: 35px;
+   }
+}
+
+// container class first unordered list
+.primary-menu ul { min-width: 60%; } 
+
+// each navigation item
+#site-navigation .primary-menu li {
+   padding-left:41px; 
+   font-family:$lighttext; 
+   font-weight: 100; 
+   min-width: 43px;
+   margin-top: 40px;
+
+   @include breakpoint(md){
+       padding-top: 4px;
+   }
+
+   &:hover{
+     color: $lightblush;
+   }
+}
+
+// each navigation item anchor
+
+#site-navigation .primary-menu li a {
+ &:hover{
+   color: $lightblush;
+ }
+ &:active{
+   color: $lightblush;
+ }
+} 
+
+#site-navigation .primary-menu li a .active{
+   color:$verylightblush;
+}
+
+.active a{
+   color: $lightblush;
+}
+
+.main-navigation .active a{
+ color:$lightblush!important;
+ text-decoration-line: underline;
+}
+
+.sub-menu > ul {
+   display: block;
+}
+
+#menu-item-2274, #menu-item-2273, #menu-item-2276, #menu-item-2312, #menu-item-2313, #menu-item-2319, #menu-item-2406{
+   margin: 5px!important ;
+   color: black!important;
+   padding: 5px!important;
+}
+
+#menu-item-2274 > a, #menu-item-2273 > a, #menu-item-2276 > a, #menu-item-2319 > a, #menu-item-2312 > a, #menu-item-2313 > a, #menu-item-2406 > a{
+   color: black!important;
+}
+
+#menu-item-1912 > ul, #menu-item-2405 > ul{
+   background-color: $verylightblush;
+   display: block;
+}
+
+// each drap down navigation item anchor
+#site-navigation .primary-menu li li a {color: #000; } 
+
+.custom-logo-link {  
+       position: absolute;
+       left: 25%;
+       top: -10;
+       width: 40%;
+   @include breakpoint(sm){
+       top: 0.5%;
+       left: 3%;
+       width: 185px;
+   }
+}
+
+// covid-19 page custom text boxes
+
+.covid-bg{
+   width: 90%;
+   background-size: 100%;
+   background-position:20%;
+   background-repeat: no-repeat;
+   display: flex;
+   align-items: center;
+   align-content: center;
+   margin: 0 auto;
+   padding: 3% 6%;
+   & p{
+      width:90%;
+      font-size: 0.7em;
+      margin: 0px;
+      line-height: 1.2em;
+   }
+   @include breakpoint(md){
+      background-size: 90%;
+
+   & p{
+      font-size: 1.7em;
+      }
+   }
+}
+
+// horizontal scroller 
+.eapps-instagram-feed-title-container {
+ display: none;
+}
+
+//services table 
+
+#customers {
+ font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+ border-collapse: collapse;
+ width: 80%;
+ margin: 10%;
+}
+
+#customers th {
+ font-family: $subheaders;
+ border: none;
+ padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: transparent;}
+
+#customers tr:hover {background-color: transparent;}
+
+#customers th {
+ padding-top: 5px;
+ padding-bottom: 5px;
+ text-align: center;
+ background-color: transparent;
+ color: #112507;
+}
+
+#customers td {
+ color: $lightblush;
+ line-height: 63px;
+}
+
+span {
+ color:$lightblush;
+ font-family: $lighttext;
+}
+
+#customers td:nth-child(1){
+ color:#112507;
+ font-family: $subheaders;
+ font-size: 0.6em;
+ @include breakpoint(sm){
+   font-size: 2em;
+ }
+}
+
+#customers .circular{
+ color: #E3BAB3;
+ background-repeat: no-repeat;
+ background-image: none;
+ background-position: center;
+ border: none;
+ box-shadow: none;
+ font-size: 0.8em;
+ @include breakpoint(sm){
+   background-image: url('assets/img/circle-price.png');  
+   font-size: 1.4em;
+ }
+}
+
+// Instagram holder
+#scrolling-wrapper-flexbox-instagram .instagram-holder{
+ margin-right: 20px;
+}
+
+// gift card page 
+
+.gift-card-bg{
+ position: relative;
+ background-color: $darkgreenmain;
+ width: 70%;
+ color:$lightblush;
+ margin: 0 auto;
+ margin-bottom: 1em;
+ text-align: center;
+ & h4 {
+    font-size: 1.5em;
+    font-family: $subheaders;
+    margin-bottom: 15px;
+ }
+ & h5{
+   font-size: 3em;
+   font-family: $subheaders;
+   line-height: 1em;
+ }
+ & i {
+   color: #000;
+   vertical-align: sub;
+   font-size: 50px;
+ }
+ & i::before {
+   font-size: 30px;
+ }
+   @include breakpoint(lg){
+      text-align: left;
+      & h5{
+         font-size: 4em;
+      }
+   }
+}
+
+.__cream-gb{
+   background-color: $canvas;
+   color: $darkgreenmain;
+}
+
+.gift-card-drop-down{
+   display: inline;
+   position: relative;
+   background-color: $lightblush;
+   border: solid 10px $canvas;
+   width: 70%;
+   margin: 0 auto;
+   min-height: 300px;
+   transition-duration: 1s;
+   & a {
+      text-decoration: none;
+      font-family: $maintext;
+      font-weight: bold;
+      color: #000;
+    }
+    & h2{
+       margin-top: 10px;
+    }
+    & span {
+      color: rgb(0, 0, 0);
+      font-size: 50px;
+      position: relative;
+      top: 4px;
+   }
+}
+
+
+.private-party-drop {
+      & a {
+         text-decoration: none;
+         font-family: $maintext;
+         font-weight: bold;
+         color: #000;
+       }
+           
+       & span {
+         color: rgb(0, 0, 0);
+         font-size: 50px;
+         position: relative;
+         top: 4px;
+       }
+}
+
+// before you book page 
+
+.before-you-book{
+   background-color: $verylightblush;
+   width: 80%;
+   margin: 0 auto;
+   margin-top:3em;
+   padding: 5% 40px 5% 40px;
+   border: solid 10px $canvas;
+   & img{ width:185px;}
+   & h2{
+      font-size: 1.4em;
+      margin-top: 0.9em;
+   }
+   & h3{
+      font-size: 1.4em;
+      margin-top: 30px;
+   }
+   & p{
+      margin-top: 0.5em;
+   }
+   & a{
+      color: #000;
+      text-align: center;
+   }
+}
+
+
+// buttons 
+
+.btn {
+  background-image: url('assets/img/button_pink_custom.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  background-size: 162px 40px;
+  width: 164px;
+  height: 42px;
+  background-color: transparent;
+  display: inline-block;
+  border-radius: 0px;
+}
+
+.btn-buy {
+   background-image: url('assets/img/button_pink_buy_now.png');
+   background-repeat: no-repeat;
+   background-position: 0px 0px;
+   background-repeat: no-repeat;
+   background-position: 0px 0px;
+   background-size: contain;
+   width: 222px;
+   height: 42px;
+   background-color: transparent;
+   display: inline-block;
+   border-radius: 0px;
+   border: 0px;
+   &:hover{
+      background-image: url('assets/img/button_pink_now_hover.png');
+   }
+ }
+
+ .btn-enquire-now {
+   background-image: url('assets/img/enquire-now-button.png');
+   background-repeat: no-repeat;
+   background-position: 0px 0px;
+   background-repeat: no-repeat;
+   background-position: 0px 0px;
+   background-size: contain;
+   width: 177px;
+   height: 60px;
+   background-color: transparent;
+   display: inline-block;
+   border-radius: 0px;
+   border: 0px;
+   &:hover{
+      background-image: url('assets/img/enquire-now-button-hover.png');
+   }
+ }
+
+.btn.large {
+	padding:10px 50px;
+	font-size:22px;
+}
+// services page 
+.open-information-toggle{
+   border-radius: 100%;
+   background-color: $lightblush;
+   font-size: 1.4em;
+   color: $alfgarnet;
+   border: none;
+   margin-left: 3px;
+   font-weight: bold;
+   font-family: serif;
+   font-style: italic;
+   margin-top: 0rem!important;
+   line-height: 0.3em;
+   padding:7px 7px;
+   @include breakpoint(sm){
+      line-height: 0.1em;
+      padding: 10px 9px;
+   }
+}
+
+// menu edits 
+.menu-item-2046{ 
+   background-image: url('assets/img/button_pink_custom.png');
+   background-repeat: no-repeat;
+   background-position: 0px 4px;
+   background-size: contain;
+   width: 137px;
+   height: 39px;
+   /* background-color: #F1F2F2; */
+   display: inline-block;
+   border-radius: 0px;
+   margin: 22px 6px 18px 31px;
+   padding-top: 19px!important;
+   color: #fff !important;
+   & a{
+      color: #fff!important;
+   }
+   @include breakpoint(sm){
+      background-position: 0px 9px;
+   }
+   &:hover{
+      background-image: url('assets/img/button_pink_custom_hover.png');
+   }
+
+}
+
+.main-navigation a{
+   font-family: $lighttext;
+   color: black;
+   min-width: max-content;
+   padding-top: 10px;
+}
+
+// CTA boxes
+.pink-cta-box {
+   width:100%;
+   background-color: #E3BAB3;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   margin: 20px 0;
+   padding: 20%;
+   text-align: center;
+
+   & h3 { font-size:2.3em;}
+
+   @include breakpoint(md){
+     width: 90%;
+     height: 90%;
+     margin: 5% 20%;
+     padding: 20%;
+     & h3{
+       font-size: 2em;
+     }
+ }
+}
+
+
+.site-footer{
+ background-color: $darkgreenmain;
+ color: #fff;
+ padding: 10px;
+ height: 285px;
+  & img{
+     width: 2.7em;
+     margin-right: 20px;
+  }
+  & h2{
+     font-size: 1em;
+     margin-top: 0px;
+  }
+  & p{
+    margin-top: 0px;
+    font-size: 0.6em;
+  }
+  @include breakpoint(md){
+   & p{
+      font-size:0.7em;
+   }
+  }
+  @include breakpoint(sm){
+   & p{
+      font-size:1em;
+   }
+      height: 200px;
+  }
+}
+
