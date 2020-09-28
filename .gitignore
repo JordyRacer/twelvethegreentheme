@@ -1,23 +1,28 @@
-# ignore everything in the root except the "wp-content" directory.
-!wp-content/
+# .gitignore file for WordPress that ignores everything except:
+#
+# - .gitignore
+# - favicon.ico
+# - wp-config.php
+# - everything in mu-plugins
+# - my-plugin
+# - my-theme (except for .sass-cache)
+#
+# based on https://gist.github.com/jdbartlett/444295
+/*
+!.gitignore
+!favicon.ico
+!wp-config.php
+!wp-content
 
-# ignore everything in the "wp-content" directory, except:
-# "mu-plugins", "plugins", "themes" directory
 wp-content/*
-!wp-content/mu-plugins/
-!wp-content/plugins/
-!wp-content/themes/
+!wp-content/mu-plugins
+!wp-content/plugins
+!wp-content/themes
 
-# ignore these plugins
-wp-content/plugins/hello.php
+wp-content/plugins/*
+!wp-content/plugins/my-plugin
 
-# ignore specific themes
-wp-content/themes/twenty*/
+wp-content/themes/*
+!wp-content/themes/custom-theme
 
-# ignore node dependency directories
-node_modules/
-
-# ignore log files and databases
-*.log
-*.sql
-*.sqlite
+.sass-cache
