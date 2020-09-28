@@ -1,28 +1,21 @@
-# .gitignore file for WordPress that ignores everything except:
-#
-# - .gitignore
-# - favicon.ico
-# - wp-config.php
-# - everything in mu-plugins
-# - my-plugin
-# - my-theme (except for .sass-cache)
-#
-# based on https://gist.github.com/jdbartlett/444295
+# ignore everything in the root except the "wp-content" directory.
 /*
+!wp-content/
+
+# ignore all files starting with .
+.*
+
+# track this file .gitignore (i.e. do NOT ignore it)
 !.gitignore
-!favicon.ico
-!wp-config.php
-!wp-content
 
-wp-content/*
-!wp-content/mu-plugins
-!wp-content/plugins
-!wp-content/themes
+# track .editorconfig file (i.e. do NOT ignore it)
+!.editorconfig
 
-.sass-cache
+# track readme.md in the root (i.e. do NOT ignore it)
+!readme.md
 
-# ignore node dependency directories (used by grunt)
-node_modules/
+# ignore all files that start with ~
+~*
 
 # ignore OS generated files
 ehthumbs.db
@@ -56,29 +49,20 @@ Thumbs.db
 *.tar
 *.zip
 
-# -------------------------
-# BEGIN Whitelisted Files
-# -------------------------
+# ignore everything in the "wp-content" directory, except:
+# "mu-plugins" directory
+# "plugins" directory
+# "themes" directory
+wp-content/*
+!wp-content/mu-plugins/
+!wp-content/plugins/
+!wp-content/themes/
 
-# track these files, if they exist
-!.gitignore
-!.editorconfig
-!.phpcs.xml.dist
-!README.md
-!CHANGELOG.md
-!composer.json
+# ignore these plugins
+wp-content/plugins/hello.php
 
-# track favicon files, if they exist
-!android-chrome-*.png
-!apple-touch-icon*.png
-!browserconfig.xml
-!favicon*.png
-!favicon*.ico
-!manifest.json
-!mstile-*.png
-!safari-pinned-tab.svg
-!site.webmanifest
+# ignore specific themes
+wp-content/themes/twenty*/
 
-# track these mu-plugins, plugins, and themes
-# add your own entries here
-!wp-content/themes/custom-theme/
+# ignore node/grunt dependency directories
+node_modules/
